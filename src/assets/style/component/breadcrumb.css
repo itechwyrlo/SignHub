@@ -1,0 +1,33 @@
+/* ===== Breadcrumb ===== */
+.header-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  margin: 1.5rem 0 1.5rem 0;
+}
+
+.breadcrumb-item {
+  color: var(--color-text-secondary);
+  cursor: default;
+}
+
+.breadcrumb-item:last-child {
+  color: var(--color-text-primary);
+  font-weight: 500;
+}
+
+.breadcrumb-link {
+  color: var(--color-link);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.breadcrumb-link:hover {
+  text-decoration: none;
+}
+
+.breadcrumb-separator {
+  color: var(--color-text-tertiary);
+}

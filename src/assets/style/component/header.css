@@ -1,0 +1,224 @@
+/* ===== Header Container ===== */
+.dashboard-header {
+    position: fixed;
+    top: 0;
+    left: var(--sidebar-width);
+    right: 0;
+    width: calc(100% - var(--sidebar-width));
+    height: var(--header-height);
+    background-color: var(--color-bg-primary);
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.5rem;
+    transition: left var(--transition-base), width var(--transition-base);
+    z-index: var(--z-header);
+}
+
+.dashboard-sidebar.collapsed ~ .dashboard-header {
+    left: var(--sidebar-collapsed-width);
+    width: calc(100% - var(--sidebar-collapsed-width));
+}
+
+/* ===== Header Sections ===== */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.header-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    max-width: 600px;
+    margin: 0 2rem;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* ===== Header Toggle Button ===== */
+.header-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 0.5rem;
+    color: var(--color-text-secondary);
+    background-color: transparent;
+    transition: all var(--transition-fast);
+}
+
+.header-toggle:hover {
+    background-color: var(--color-bg-tertiary);
+    color: var(--color-text-primary);
+}
+
+.header-toggle:active {
+    transform: scale(0.95);
+}
+
+/* ===== Search Bar ===== */
+.header-search {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-tertiary);
+    pointer-events: none;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.625rem 1rem 0.625rem 2.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    background-color: var(--color-bg-secondary);
+    font-size: 0.875rem;
+    transition: all var(--transition-fast);
+}
+
+.search-input:focus {
+    background-color: var(--color-bg-primary);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.search-input::placeholder {
+    color: var(--color-text-tertiary);
+}
+
+/* ===== Header Actions ===== */
+.header-action {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 0.5rem;
+    color: var(--color-text-secondary);
+    background-color: transparent;
+    transition: all var(--transition-fast);
+}
+
+.header-action:hover {
+    background-color: var(--color-bg-tertiary);
+    color: var(--color-text-primary);
+}
+
+.header-action .badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 16px;
+    height: 16px;
+    padding: 0 4px;
+    background-color: var(--color-danger);
+    color: white;
+    border-radius: 8px;
+    font-size: 0.625rem;
+    font-weight: 600;
+}
+
+/* ===== User Menu ===== */
+.header-user {
+    position: relative;
+}
+
+.user-trigger {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.5rem;
+    background-color: transparent;
+    transition: all var(--transition-fast);
+}
+
+.user-trigger:hover {
+    background-color: var(--color-bg-tertiary);
+}
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-name {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    white-space: nowrap;
+}
+
+.user-trigger svg {
+    color: var(--color-text-tertiary);
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 1024px) {
+    .header-center {
+        margin: 0 1rem;
+    }
+    
+    .user-name {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-header {
+        left: 0;
+        padding: 0 1rem;
+        width: 100%;
+    }
+    
+    .header-breadcrumb {
+        display: none;
+    }
+    
+    .header-center {
+        display: none;
+    }
+    
+    .header-left {
+        gap: 0.5rem;
+    }
+    
+    .header-right {
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-header {
+        padding: 0 0.75rem;
+    }
+    
+    .header-action {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .user-trigger {
+        padding: 0.25rem;
+    }
+}

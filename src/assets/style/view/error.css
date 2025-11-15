@@ -1,0 +1,150 @@
+.error-page {
+    width: 100%;
+  }
+  
+  .error-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color-bg-primary);
+    box-shadow: var(--shadow-md);
+    border-radius: 1rem;
+    padding: 2rem;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .error-text {
+    max-width: 400px;
+  }
+  
+  .error-code {
+    font-weight: 600;
+    color: var(--color-primary);
+    margin: 0;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    margin: 0.5rem 0;
+    color: var(--color-text-primary);
+  }
+  
+  .error-text p {
+    color: var(--color-text-secondary);
+    margin-bottom: 1.5rem;
+  }
+  
+  .btn-home {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: var(--color-bg-primary);
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: background-color var(--transition-base);
+  }
+  
+  .btn-home:hover {
+    background-color: var(--color-primary-dark);
+    color: var(--color-text-primary);
+  }
+  
+  /* ===== CSS Mammoth Illustration ===== */
+  .error-illustration {
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .mammoth {
+    position: relative;
+    width: 180px;
+    height: 150px;
+  }
+  
+  /* Body */
+  .mammoth-body {
+    width: 100%;
+    height: 80px;
+    background-color: #FBCFE8; /* soft pink style mammoth */
+    border-radius: 80px 80px 40px 40px;
+    position: absolute;
+    bottom: 0;
+  }
+  
+  /* Head */
+  .mammoth-head {
+    width: 80px;
+    height: 80px;
+    background-color: #FECACA; /* slightly darker pink */
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  /* Eye */
+  .mammoth-eye {
+    width: 10px;
+    height: 10px;
+    background-color: var(--color-text-primary);
+    border-radius: 50%;
+    position: absolute;
+    top: 30%;
+    left: 55%;
+  }
+  
+  /* Tusks */
+  .mammoth-tusk {
+    width: 40px;
+    height: 15px;
+    border: 4px solid var(--color-bg-primary);
+    border-radius: 50% 50% 0 0;
+    position: absolute;
+    top: 50%;
+  }
+  
+  .mammoth-tusk.left {
+    transform: rotate(-20deg);
+    left: -20px;
+  }
+  
+  .mammoth-tusk.right {
+    transform: rotate(20deg);
+    right: -20px;
+  }
+  
+  /* Legs */
+  .mammoth-legs {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .mammoth-legs .leg {
+    width: 20px;
+    height: 25px;
+    background-color: #FECACA;
+    border-radius: 8px;
+  }
+  
+  /* Sign */
+  .sign {
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-bg-primary);
+    color: var(--color-primary);
+    font-weight: bold;
+    padding: 4px 12px;
+    border-radius: 6px;
+    box-shadow: var(--shadow-md);
+  }

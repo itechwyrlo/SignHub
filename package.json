@@ -1,0 +1,14 @@
+{
+  "name": "signhub-frontend",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "SignHub Document Signing Dashboard",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
+

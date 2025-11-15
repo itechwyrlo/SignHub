@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SignHub - Document Signing Dashboard</title>
+
+    <link
+      href="https://cdn.boxicons.com/3.0.3/fonts/basic/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.boxicons.com/3.0.3/fonts/brands/boxicons-brands.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./src/assets/style/global/style.css" />
+    
+    <!-- ✅ Configuration moved to head - must load before main.js -->
+    <script>
+      // Override API URL for development
+      if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        window.APP_CONFIG = {
+          apiBaseUrl: 'http://localhost:5135'
+        };
+      }
+      // For production, set this via environment variable or update config.js default
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- GitHub Pages SPA redirect handler - must run before main.js -->
+    <script>
+      // Handle GitHub Pages 404 redirect
+      (function(l) {
+        if (l.search[1] === '/' ) {
+          var decoded = l.search.slice(1).split('&').map(function(s) { 
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null,
+              l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location))
+    </script>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>

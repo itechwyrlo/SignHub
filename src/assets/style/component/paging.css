@@ -1,0 +1,285 @@
+/* ===== Paging Toolbar Styles ===== */
+
+/* Main Container */
+.paging-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    background: #FFFFFF;
+    border: 1px solid var(--color-border);
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+/* Page Info Section */
+.paging-info {
+    color: var(--color-text-secondary);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.paging-info strong {
+    color: var(--color-text-primary);
+    font-weight: 600;
+}
+
+/* Page Size Selector Section */
+.paging-size-selector {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-text-secondary);
+    font-size: 14px;
+}
+
+.paging-page-size-select {
+    padding: 8px 36px 8px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    background: #FFFFFF;
+    color: var(--color-text-primary);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%236B7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
+    background-position: right 8px center;
+    background-repeat: no-repeat;
+    background-size: 20px;
+}
+
+.paging-page-size-select:hover {
+    border-color: var(--color-primary);
+    background-color: var(--color-bg-secondary);
+}
+
+.paging-page-size-select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+/* Navigation Section */
+.paging-navigation {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Paging Buttons */
+.paging-btn {
+    min-width: 36px;
+    height: 36px;
+    padding: 0 12px;
+    background: #FFFFFF;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    color: var(--color-text-primary);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+
+.paging-btn:hover:not(:disabled) {
+    background: var(--color-bg-secondary);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.paging-btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.paging-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    background: var(--color-bg-tertiary);
+    color: var(--color-text-tertiary);
+}
+
+/* Active Page Button */
+.paging-btn.active {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: #FFFFFF;
+    font-weight: 600;
+}
+
+.paging-btn.active:hover {
+    background: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
+    color: #FFFFFF;
+}
+
+/* Icon-only Buttons (First, Prev, Next, Last) */
+.paging-first,
+.paging-prev,
+.paging-next,
+.paging-last {
+    min-width: 36px;
+    padding: 0;
+}
+
+.paging-first i,
+.paging-prev i,
+.paging-next i,
+.paging-last i {
+    font-size: 14px;
+}
+
+/* Ellipsis */
+.paging-ellipsis {
+    padding: 0 8px;
+    color: var(--color-text-tertiary);
+    font-size: 14px;
+    user-select: none;
+}
+
+/* ===== Responsive Design ===== */
+
+/* Tablet */
+@media (max-width: 992px) {
+    .paging-toolbar {
+        padding: 14px 16px;
+        gap: 12px;
+    }
+
+    .paging-btn {
+        min-width: 34px;
+        height: 34px;
+        font-size: 13px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .paging-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        padding: 16px;
+    }
+
+    .paging-info {
+        text-align: center;
+        order: 1;
+    }
+
+    .paging-size-selector {
+        justify-content: center;
+        order: 3;
+    }
+
+    .paging-navigation {
+        justify-content: center;
+        order: 2;
+    }
+
+    .paging-btn {
+        min-width: 32px;
+        height: 32px;
+        padding: 0 8px;
+        font-size: 13px;
+    }
+
+    .paging-page-size-select {
+        padding: 6px 32px 6px 10px;
+        font-size: 13px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .paging-toolbar {
+        padding: 12px;
+    }
+
+    .paging-navigation {
+        gap: 2px;
+        flex-wrap: wrap;
+    }
+
+    .paging-btn {
+        min-width: 30px;
+        height: 30px;
+        padding: 0 6px;
+        font-size: 12px;
+    }
+
+    .paging-info {
+        font-size: 13px;
+    }
+
+    .paging-size-selector {
+        font-size: 13px;
+    }
+
+    /* Hide some page numbers on very small screens */
+    .paging-page-num:not(.active):nth-child(n+6) {
+        display: none;
+    }
+}
+
+/* ===== Dark Mode Support (Optional) ===== */
+/* Removed - Using light theme only */
+
+/* ===== Focus Visible (Accessibility) ===== */
+.paging-btn:focus-visible,
+.paging-page-size-select:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* ===== Loading State (Optional) ===== */
+.paging-toolbar.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.paging-toolbar.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 24px;
+    height: 24px;
+    border: 3px solid var(--color-border);
+    border-top-color: var(--color-primary);
+    border-radius: 50%;
+    animation: paging-spin 0.8s linear infinite;
+}
+
+@keyframes paging-spin {
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* ===== Enhancement: Table Card Integration ===== */
+.table-card {
+    background: #FFFFFF;
+    border: 1px solid var(--color-border);
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+}
+
+.table-card + x-paging .paging-toolbar {
+    margin-top: -1px; /* Seamless connection */
+}
+
+/* ===== Print Styles ===== */
+@media print {
+    .paging-toolbar {
+        display: none;
+    }
+}

@@ -1,0 +1,5 @@
+# Netlify/Vercel redirects for SPA routing
+# This file enables client-side routing for Single Page Applications
+
+/*    /index.html   200
+

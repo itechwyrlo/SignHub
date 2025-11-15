@@ -1,0 +1,661 @@
+/* ============================================
+   EDITABLE GRID - BASE STYLES
+   ============================================ */
+
+.grid-card {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+/* ============================================
+   TOOLBAR
+   ============================================ */
+
+.grid-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.grid-toolbar.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.grid-toolbar-left,
+.grid-toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.grid-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid #dee2e6;
+  background: #ffffff;
+  color: #495057;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.grid-btn:hover:not(:disabled) {
+  background: #f8f9fa;
+  border-color: #adb5bd;
+}
+
+.grid-btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.grid-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.grid-btn-add {
+  background: #28a745;
+  color: white;
+  border-color: #28a745;
+}
+
+.grid-btn-add:hover:not(:disabled) {
+  background: #218838;
+  border-color: #1e7e34;
+}
+
+.grid-btn-delete {
+  background: #dc3545;
+  color: white;
+  border-color: #dc3545;
+}
+
+.grid-btn-delete:hover:not(:disabled) {
+  background: #c82333;
+  border-color: #bd2130;
+}
+
+.grid-btn-save {
+  background: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.grid-btn-save:hover:not(:disabled) {
+  background: #0056b3;
+  border-color: #004085;
+}
+
+.grid-changes-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #dc3545;
+  font-weight: 500;
+}
+
+.grid-changes-indicator i {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* ============================================
+   GRID TABLE
+   ============================================ */
+
+.grid-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.data-grid {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+}
+
+/* Header */
+.grid-header-row {
+  background: #f8f9fa;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.grid-header-cell {
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 14px;
+  color: #495057;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.grid-header-checkbox {
+  width: 50px;
+  text-align: center;
+  padding: 12px 8px;
+}
+
+/* Body */
+.grid-body {
+  background: #ffffff;
+}
+
+.grid-row {
+  border-bottom: 1px solid #e9ecef;
+  transition: background-color 0.15s;
+}
+
+.grid-row:hover {
+  background: #f8f9fa;
+}
+
+.grid-row.row-modified {
+  background: #fff3cd;
+}
+
+.grid-row.row-new {
+  background: #d1ecf1;
+}
+
+.grid-row.row-deleted {
+  background: #f8d7da;
+  opacity: 0.6;
+  text-decoration: line-through;
+}
+
+.grid-cell {
+  padding: 12px 16px;
+  font-size: 14px;
+  color: #212529;
+  vertical-align: middle;
+  position: relative;
+}
+
+.grid-cell.editable {
+  cursor: text;
+  position: relative;
+}
+
+.grid-cell.editable:hover {
+  background: rgba(0, 123, 255, 0.05);
+}
+
+.grid-cell.editable:focus {
+  outline: 2px solid #007bff;
+  outline-offset: -2px;
+  background: rgba(0, 123, 255, 0.05);
+}
+
+.grid-cell.editing {
+  padding: 4px;
+  background: #ffffff;
+  z-index: 10;
+  position: relative;
+}
+
+.grid-cell-checkbox {
+  width: 50px;
+  text-align: center;
+  padding: 12px 8px;
+}
+
+.grid-cell-actions {
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* Empty State */
+.grid-row-empty {
+  border: none;
+}
+
+.grid-cell-empty {
+  padding: 0 !important;
+}
+
+.grid-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  color: #6c757d;
+}
+
+.grid-empty-state i {
+  font-size: 48px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+.grid-empty-state p {
+  margin: 0;
+  font-size: 16px;
+}
+
+/* ============================================
+   EDITORS
+   ============================================ */
+
+.editor-input {
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-family: inherit;
+  border: 2px solid #007bff;
+  border-radius: 4px;
+  background: #ffffff;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.editor-input:focus {
+  border-color: #0056b3;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.editor-input.invalid {
+  border-color: #dc3545;
+  animation: shake 0.3s;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* Validation Error Message */
+.editor-validation-error {
+  position: absolute;
+  bottom: -24px;
+  left: 0;
+  right: 0;
+  background: #dc3545;
+  color: white;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  z-index: 1000;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.editor-validation-error::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 12px;
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 4px solid #dc3545;
+}
+
+.editor-text,
+.editor-number {
+  min-width: 120px;
+}
+
+.editor-combo {
+  min-width: 150px;
+  cursor: pointer;
+}
+
+.editor-date {
+  min-width: 150px;
+  cursor: pointer;
+}
+
+/* Date picker styles */
+.editor-date::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: 0.8;
+  padding: 4px;
+  margin: 0;
+}
+
+.editor-date::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+  background: rgba(0, 123, 255, 0.1);
+  border-radius: 4px;
+}
+
+.editor-date::-moz-calendar-picker-indicator {
+  cursor: pointer;
+}
+
+.editor-checkbox {
+  width: auto;
+  height: 20px;
+  cursor: pointer;
+  margin: 0 auto;
+  display: block;
+}
+
+/* ============================================
+   ACTION BUTTONS
+   ============================================ */
+
+.grid-action-buttons {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.grid-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  font-size: 13px;
+  border: 1px solid #dee2e6;
+  background: #ffffff;
+  color: #495057;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.grid-action-btn:hover {
+  background: #f8f9fa;
+  border-color: #adb5bd;
+}
+
+.grid-action-btn.btn-view {
+  color: #007bff;
+  border-color: #007bff;
+}
+
+.grid-action-btn.btn-view:hover {
+  background: #007bff;
+  color: white;
+}
+
+/* ============================================
+   CHECKBOXES
+   ============================================ */
+
+.grid-select-all,
+.grid-row-checkbox {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #007bff;
+}
+
+/* ============================================
+   RESPONSIVE - TABLET (992px)
+   ============================================ */
+
+@media (max-width: 992px) {
+  .grid-toolbar {
+    padding: 12px 16px;
+  }
+  
+  .grid-header-cell,
+  .grid-cell {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+}
+
+/* ============================================
+   RESPONSIVE - TABLET/MOBILE (768px and below) - CARD VIEW
+   ============================================ */
+
+@media (max-width: 768px) {
+  /* Hide table header */
+  .grid-header {
+    display: none !important;
+  }
+  
+  /* Transform table and tbody into block containers */
+  .data-grid {
+    display: block;
+  }
+  
+  .grid-body {
+    display: block;
+    padding: 16px;
+  }
+  
+  /* Transform each row into a card */
+  .grid-row {
+    display: block;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 16px;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    position: relative;
+  }
+  
+  .grid-row:hover {
+    background: #ffffff;
+  }
+  
+  /* Each cell becomes a row in the card */
+  .grid-cell {
+    display: block;
+    padding: 8px 0 !important;
+    border: none;
+    text-align: left !important;
+  }
+  
+  /* Add labels before each cell using data attributes */
+  .grid-cell[data-key]:not(.grid-cell-checkbox):not(.grid-cell-actions)::before {
+    content: attr(data-key);
+    display: block;
+    font-weight: 400;
+    color: #888888;
+    font-size: 11px;
+    margin-bottom: 2px;
+    text-transform: capitalize;
+  }
+  
+  /* Position checkbox at top right */
+  .grid-cell-checkbox {
+    position: relative;
+    top: 16px;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 0 0 1.5rem 0 !important;
+    
+  }
+  
+  /* Position actions at bottom */
+  .grid-cell-actions {
+    display: block;
+    margin-top: 12px;
+    padding-top: 12px !important;
+    border-top: 1px solid #e9ecef;
+  }
+  
+  .grid-action-buttons {
+    justify-content: flex-start;
+  }
+  
+  /* Hide ID column on mobile */
+  .grid-cell[data-key="id"] {
+    display: none;
+  }
+  
+  /* Toolbar adjustments */
+  .grid-toolbar {
+    padding: 12px 16px;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .grid-toolbar-left,
+  .grid-toolbar-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .grid-btn {
+    font-size: 13px;
+    padding: 10px 14px;
+  }
+  
+  .grid-changes-indicator {
+    width: 100%;
+    justify-content: center;
+    padding: 8px;
+    background: #fff3cd;
+    border-radius: 4px;
+  }
+  
+  /* Empty state adjustments */
+  .grid-empty-state {
+    padding: 40px 20px;
+  }
+  
+  .grid-empty-state i {
+    font-size: 36px;
+  }
+  
+  .grid-empty-state p {
+    font-size: 14px;
+  }
+}
+
+/* ============================================
+   RESPONSIVE - SMALL MOBILE (480px and below)
+   ============================================ */
+
+@media (max-width: 480px) {
+  .grid-toolbar {
+    padding: 12px;
+  }
+  
+  .grid-toolbar-left,
+  .grid-toolbar-right {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .grid-btn {
+    flex: 1;
+    min-width: calc(50% - 4px);
+    font-size: 12px;
+    padding: 10px 12px;
+  }
+  
+  .grid-btn i {
+    font-size: 14px;
+  }
+  
+  .grid-body {
+    padding: 12px;
+  }
+  
+  .grid-row {
+    padding: 14px;
+    margin-bottom: 10px;
+  }
+  
+  .grid-cell[data-key]:not(.grid-cell-checkbox):not(.grid-cell-actions)::before {
+    font-size: 10px;
+  }
+  
+  .grid-cell {
+    font-size: 12px;
+  }
+}
+
+/* ============================================
+   UTILITIES
+   ============================================ */
+
+.grid-loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.grid-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Focus visible for keyboard navigation */
+.grid-cell.editable:focus-visible {
+  outline: 2px solid #007bff;
+  outline-offset: -2px;
+}
+
+/* Print styles */
+@media print {
+  .grid-toolbar {
+    display: none;
+  }
+  
+  .grid-card {
+    box-shadow: none;
+    border: 1px solid #dee2e6;
+  }
+  
+  .grid-action-buttons {
+    display: none;
+  }
+  
+  .grid-cell-checkbox,
+  .grid-header-checkbox {
+    display: none;
+  }
+}

@@ -1,0 +1,104 @@
+/* ===========================
+   MODAL OVERLAY
+=========================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(2px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.modal-overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ===========================
+   MODAL CONTAINER
+=========================== */
+.modal-window {
+  background: #fff;
+  width: 380px;
+  max-width: 90%;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+
+  transform: translateY(-20px);
+  opacity: 0;
+  transition: all 0.25s ease;
+}
+
+.modal-overlay.show .modal-window {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ===========================
+   TITLE + MESSAGE
+=========================== */
+.modal-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.modal-message {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* ===========================
+   BUTTONS
+=========================== */
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.modal-buttons button {
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s ease;
+}
+
+/* Cancel Button */
+.modal-buttons .btn-cancel {
+  background: #e5e5e5;
+}
+
+.modal-buttons .btn-cancel:hover {
+  background: #d7d7d7;
+}
+
+/* Confirm Button */
+.modal-buttons .btn-confirm {
+  background: #0d6efd;
+  color: white;
+}
+
+.modal-buttons .btn-confirm:hover {
+  background: #0b5cd6;
+}
+
+/* Danger (Delete) Button Variant */
+.btn-danger {
+  background: #dc3545 !important;
+}
+
+.btn-danger:hover {
+  background: #bb1f2d !important;
+}
